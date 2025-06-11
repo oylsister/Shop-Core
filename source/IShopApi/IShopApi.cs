@@ -164,6 +164,8 @@ public interface IShopApi
     ///
 	int GetItemIdByUniqueName(string uniqueName);
 
+    string GetItemCategoryName(int itemId);
+
     ///
     /// <summary>
     /// Выдать предмет игроку
@@ -173,7 +175,7 @@ public interface IShopApi
     /// <param name="customDuration">Длительность предмета или количество</param>
     /// <returns>Выдался предмет или нет</returns>
     ///
-	bool GiveClientItem(CCSPlayerController player, int itemID, int customDuration);
+    bool GiveClientItem(CCSPlayerController player, int itemID, int customDuration);
 
     ///
     /// <summary>

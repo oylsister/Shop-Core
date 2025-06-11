@@ -230,10 +230,16 @@ public class ApiShop : IShopApi
         return Item == null ? -1 : Item.ItemID;
     }
 
+    public string GetItemCategoryName(int itemId)
+    {
+        Items? Item = _shop.ItemsList.Find(x => x.ItemID == itemId);
+        return Item == null ? string.Empty : Item.Category;
+    }
+
     public bool GiveClientItem(CCSPlayerController player, int itemID, int customDuration)
     {
         Items? Item = _shop.ItemsList.Find(x => x.ItemID == itemID);
-        if(Item == null) return false;
+        if (Item == null) return false;
 
         return _shop.GivePlayerItem(player, Item, customDuration);
     }
