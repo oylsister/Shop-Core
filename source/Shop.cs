@@ -28,7 +28,7 @@ public class Shop : BasePlugin, IPluginConfig<ShopConfig>
     public CCSPlayerController[] transPlayer = new CCSPlayerController[65];
     private Api.ApiShop? _api;
     public new IStringLocalizer Localizer => base.Localizer;
-    
+
     public override void Load(bool hotReload)
     {
         _api = new Api.ApiShop(this); 
@@ -1060,7 +1060,7 @@ public class Shop : BasePlugin, IPluginConfig<ShopConfig>
                     steamid = $"STEAM_0:{(steam64 - 76561197960265728) % 2}:{(steam64 - 76561197960265728) / 2}";
                 }
 
-                AddClientCredits(steamid, Convert.ToInt32(commandInfo.GetArg(2)));
+                AddClientCreditsSteamID(steamid, Convert.ToInt32(commandInfo.GetArg(2)));
             }
         }
 	}
@@ -1521,7 +1521,7 @@ public class Shop : BasePlugin, IPluginConfig<ShopConfig>
             _api!.OnCreditsAddPost(player, Credits, by_who);
     }
 
-    public void AddClientCredits(string steamID, int Credits)
+    public void AddClientCreditsSteamID(string steamID, int Credits)
     {
         if(Credits < 0) Credits = 0;
 
